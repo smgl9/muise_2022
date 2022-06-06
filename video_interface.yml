@@ -1,0 +1,41 @@
+toplevel: system_top
+name: vga_interface
+files: 
+  - name: "src/video_generator.v"
+    file_type: "verilogSource-2005"
+    is_include_file: false
+    include_path: ""
+    logical_name: ""
+  - name: "src/vga_interface.v"
+    file_type: "verilogSource-2005"
+    is_include_file: false
+    include_path: ""
+    logical_name: ""
+  - name: "src/system_top.v"
+    file_type: "verilogSource-2005"
+    is_include_file: false
+    include_path: ""
+    logical_name: ""
+  - name: "src/monitor.v"
+    file_type: "verilogSource-2005"
+    is_include_file: false
+    include_path: ""
+    logical_name: ""
+  - name: "src/frame_sync.v"
+    file_type: "verilogSource-2005"
+    is_include_file: false
+    include_path: ""
+    logical_name: ""
+  - name: "src/axis_fifo.v"
+    file_type: "verilogSource-2005"
+    is_include_file: false
+    include_path: ""
+    logical_name: ""
+tool_options: 
+  icarus: 
+    installation_path: "/home/ismael/oss-cad-suite/bin"
+    timescale: ""
+    iverilog_options: 
+      - ""
+    linter_options: 
+      - ""
