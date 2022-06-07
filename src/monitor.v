@@ -28,9 +28,8 @@ module monitor (
     reg[10:0]	contvidh = 0; // horizontal counter
     reg[4:0]	clkcount = 0; // clock divider
 
-    /////////////////////////////
-    ////    control values  /////
-    /////////////////////////////
+    //    control values 
+
     reg 			vid_clk=0;
 
     wire			vsync = ((contvidv >= 491) && (contvidv < 493))? 1'b0 : 1'b1;
@@ -41,28 +40,17 @@ module monitor (
     wire            pixel_ena = vid_blank;   // active image region
     wire            start_frame = ((contvidv==8) && (contvidh==20))? 1'b1 : 1'b0;    // first pixel
 
-    ////////////////////////////////////////
-    /// general clock divider
-    /////////////////////////////////////////
-
-
+    // general clock divider
     always @ (posedge clk )
 
     begin
 
         clkcount <= clkcount + 1;
-        vid_clk <= clkcount[0];
+        vid_clk <= clkcount[0];  //  25 Mhz clock
         vid_clk_o <= vid_clk;
     end
 
-    ///////////////////////////
-    ///  25 Mhz clock    //////
-    ///////////////////////////
-
-    /////////////////////////////////
-    // horizontal counter       /////
-    /////////////////////////////////
-
+    // horizontal counter
     always @ (posedge vid_clk )
 
     begin
@@ -78,10 +66,7 @@ module monitor (
         end
     end
 
-    ////////////////////////////////////////
-    //vertical counter when clrvidv is low /
-    ////////////////////////////////////////
-
+    // vertical counter when clrvidv is low
     always @ (posedge vid_clk)
 
     begin
@@ -100,8 +85,6 @@ module monitor (
             end
         end
     end
-
-    //assign vid_clk_o = vid_clk;
 
     assign vsync_o = vsync;
     assign hsync_o = hsync;
